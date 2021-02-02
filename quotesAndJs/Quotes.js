@@ -1,9 +1,7 @@
 import React from "react";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
 
-
-
-const Quotes = () => {
+const Quotes = ({value}) => {
   var StringData = [
     {
       Author: " --Helen Keller",
@@ -762,7 +760,7 @@ const Quotes = () => {
     {
       Author: " --Robert Fulghum",
       Quote:
-        '"I once listed all the good things I did over the past year, and\nthen turned them into resolution form and backdated them.  That\nwas a good feeling."',
+        '"I once listed all the good things I did over the past year, and\nthen turned them into resolution form and backdated them.That\nwas a good feeling."',
       index: 131,
     },
     {
@@ -774,7 +772,7 @@ const Quotes = () => {
     {
       Author: " --Anthony Robbins",
       Quote:
-        '"Create a vision and never let the environment, other people\'s\nbeliefs, or the limits of what has been done in the past shape\nyour decisions.  Ignore conventional wisdom."',
+        '"Create a vision and never let the environment, other people\'s\nbeliefs, or the limits of what has been done in the past shape\nyour decisions.Ignore conventional wisdom."',
       index: 133,
     },
     {
@@ -2927,7 +2925,8 @@ const Quotes = () => {
     },
     {
       Author: " --Miguel De",
-      Quote: '"Our greatest foes, and whom we must chiefly combat, are within."',
+      Quote:
+        '"Our greatest foes, and whom we must chiefly combat, are within."',
       index: 502,
     },
     {
@@ -3510,7 +3509,8 @@ const Quotes = () => {
     },
     {
       Author: " --Bruce Springsteen",
-      Quote: '"Blind faith in your leaders or in anything will get you killed."',
+      Quote:
+        '"Blind faith in your leaders or in anything will get you killed."',
       index: 602,
     },
     {
@@ -3710,7 +3710,11 @@ const Quotes = () => {
         "\"Once in a stately passion\n I cried with desperate grief,\n 'O Lord, my heart is black with guile,\n Of sinners I am chief.'\"",
       index: 636,
     },
-    { Author: " --The Who", Quote: '"Hope I die before I get old."', index: 637 },
+    {
+      Author: " --The Who",
+      Quote: '"Hope I die before I get old."',
+      index: 637,
+    },
     {
       Author: " --from Flatliners",
       Quote: '"It\'s a good day to die."',
@@ -3870,7 +3874,8 @@ const Quotes = () => {
     },
     {
       Author: " --Tony",
-      Quote: '"Kind of get\'s you thinking, doesn\'t it?","The Real Estate Man"',
+      Quote:
+        '"Kind of get\'s you thinking, doesn\'t it?","The Real Estate Man"',
       index: 666,
     },
     {
@@ -4060,23 +4065,27 @@ const Quotes = () => {
       index: 698,
     },
   ];
+
+  const Quotes = StringData[value].Quote.replace(/\r?\n|\r/g, " ");
+  const author = StringData[value].Author;
   
-  let val = getRandomIntInclusive(0, 699);
-  const Quotes = StringData[val].Quote;
-  const author = StringData[val].Author;
-  console.log(Quotes + "\n \t \t \t \t" + author+"val   "+val);
-  function getRandomIntInclusive(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
-  }
   
+
   return (
-    <>
+    <View>
       <Text>{Quotes}</Text>
-      <Text>{author}</Text>
-    </>
+      {/* <Text>{}</Text> */}
+      <Text style={Style}>{author}</Text>
+    </View>
   );
-};
+}
 
 export default Quotes;
+const styles = StyleSheet.create({
+  authorStyles:{
+    textAlign:"center",
+  },
+});
+
+//stringWithLineBreaks.replace(/(\r\n|\n|\r)/gm, "");//remove those line breaks
+//replace(/\r?\n|\r/g, " "); /* replace all newlines with a space */
