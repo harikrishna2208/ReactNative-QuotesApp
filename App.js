@@ -25,7 +25,7 @@ export default function App() {
       </View>
     </View>
   );
-}
+  }
 
 const styles = StyleSheet.create({
   Title: {
@@ -46,7 +46,9 @@ const styles = StyleSheet.create({
     padding: 10,
     alignItems: "center",
     justifyContent: "center",
-    fontSize: 24 ,
+    fontSize: 24,
+    borderRadius: 5,
+    margin: 10,
   },
   buttonarea: {
     justifyContent: "center",

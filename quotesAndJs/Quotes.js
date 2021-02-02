@@ -1,7 +1,7 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
 
-const Quotes = ({value}) => {
+const Quotes = ({ value }) => {
   var StringData = [
     {
       Author: " --Helen Keller",
@@ -4068,22 +4068,20 @@ const Quotes = ({value}) => {
 
   const Quotes = StringData[value].Quote.replace(/\r?\n|\r/g, " ");
   const author = StringData[value].Author;
-  
-  
 
   return (
     <View>
       <Text>{Quotes}</Text>
       {/* <Text>{}</Text> */}
-      <Text style={Style}>{author}</Text>
+      <Text style={styles.authorStyles}>{author}</Text>
     </View>
   );
-}
+};
 
 export default Quotes;
 const styles = StyleSheet.create({
-  authorStyles:{
-    textAlign:"center",
+  authorStyles: {
+    textAlign: "center",
   },
 });
 
